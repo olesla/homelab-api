@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  app:
+    build: .
+    command: npm run start
+    ports:
+      - 5022:5022
+    container_name: homelab-api
+    restart: unless-stopped
+networks:
+  default:
+    name: nginx-proxy-manager_default
+    external: true
